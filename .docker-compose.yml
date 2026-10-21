@@ -1,0 +1,73 @@
+name: station-fuels-platform
+x-airflow-common: &airflow-common
+# --- airflow model that all services use (common) ---
+   build:
+      context: .
+      dockerfile: docker/airflow/Dockerfile
+   env_file:
+      - .env
+   environment: &airflow-common-env
+      # --- environment variables of airflow ---
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-metadata/airflow
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__WEBSERVER__SECRET_KEY: ${AIRFLOW_SECRET_KEY:?defini dans .env}
+      AIRFLOW__WEBSERVER__BASE_URL: http://localhost:8080
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "false"
+      # --- environment variables dbt / motherduck ---
+      DBT_PROJECT_DIR: /opt/dbt
+      PIPELINE_INPUTS_DIR: /opt/airflow/pipeline_inputs
+      MOTHERDUCK_DB: ${MOTHERDUCK_DB:?defini dans .env}
+      MOTHERDUCK_TOKEN: ${MOTHERDUCK_TOKEN:?defini dans .env}
+   volumes:
+      - ./airflow_orchestrator:/opt/airflow/dags # for airflow DAGs
+      - ./dbt_pipeline:/opt/dbt # for the DBT project
+      - ./dbt_pipeline/pipeline_inputs:/opt/airflow/pipeline_inputs # displace 'data source inputs'
+
+   depends_on:
+      airflow-metadata:
+         condition: service_healthy
+   user: "${AIRFLOW_UID:-50000}:0"
+services:
+# airflow metadata creation (the other services wait until this one is done 'healthcheck')
+   airflow-metadata:
+      image: postgres:16
+      environment:
+         POSTGRES_USER: airflow
+         POSTGRES_PASSWORD: airflow
+         POSTGRES_DB: airflow
+      volumes:
+         - airflow-meta-db:/var/lib/postgresql/data
+      healthcheck:
+         test: ["CMD", "pg_isready", "-U", "airflow"]
+         interval: 10s
+         retries: 5
+      restart: always
+   airflow-init:
+   # airflow base migration + admin account creation
+      <<: *airflow-common
+      command: >
+         bash -c "airflow db migrate &&
+         airflow users create
+         --username admin --firstname admin --lastname admin
+         --role Admin --email admin@example.com
+         --password ${AIRFLOW_ADMIN_PASSWORD:?defini dans .env}"
+      restart: "no"
+   airflow-scheduler:
+   #  airflow engine to read and launch tasks
+      <<: *airflow-common
+      command: scheduler
+      restart: always
+   airflow-webserver:
+   #  airflow UI
+      <<: *airflow-common
+      command: webserver
+      ports:
+         - "127.0.0.1:8080:8080"
+      depends_on:
+         airflow-init:
+            condition: service_completed_successfully
+      restart: always
+
+volumes:
+   airflow-meta-db:

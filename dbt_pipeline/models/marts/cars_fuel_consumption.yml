@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: cars_fuel_consumption
+    description: table de tous les modèles de voiture (marque, moteur, etc..) avec leur consommation.
+      Il s'agit des données filtrées selon ESSENCE/DIESEL/HYBRIDE
+    columns:
+      - name: brand
+        description: Marque de la Voiture
+        type: VARCHAR
+      - name: car_model
+        description: Modèle de la Voiture
+        type: VARCHAR
+      - name: engine_model
+        description: Modèle du moteur (Diesel, Essence, Hybride ou Electrique)
+        type: VARCHAR
+      - name: conso_fuel_liter_per_100km
+        description: consommation d'hydrocarbures (Litre / 100 km)
+        type: FLOAT
+        data_tests:
+          - not_null

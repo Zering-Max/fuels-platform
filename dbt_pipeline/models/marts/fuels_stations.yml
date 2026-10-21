@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: fuels_stations
+    description: ensemble des stations essence recensées en France.
+    columns:
+      - name: id
+        description: Identifiant unique de la station
+        type: VARCHAR
+      - name: latitude
+        description: donnée géographique de latitude de la station
+        type: FLOAT
+      - name: longitude
+        description: donnée géographique de longitude de la station
+        type: FLOAT
+      - name: cp
+        description: Code postal de la station
+        type: VARCHAR
+      - name: adresse
+        description: Adresse de la station (numéro & rue/avenue/etc..)
+        type: VARCHAR
+      - name: ville
+        description: Nom de la ville où se trouve la station
+        type: VARCHAR
+      - name: prix_Gazole
+        description : Prix du litre de Gazole de la station
+        type: FLOAT
+      - name: prix_SP95
+        description: Prix du litre d'essence Sans Plomb 95 de la station
+        type: FLOAT
+      - name: prix_E85
+        description: Prix du litre d'essence 85% éthanol de la station
+        type: FLOAT
+      - name: prix_GPLc
+        description: Prix du litre de Gaz Pétrole Liquéfié de la station
+        type: FLOAT
+      - name: prix_E10
+        description: Prix du litre d'essence 10% éthanol de la station
+        type: FLOAT
+      - name: prix_SP98
+        description: Prix du litre d'essence Sans Plomb 98 de la station
+        type: FLOAT
+      - name: carburants_disponibles
+        description : types de carburants disponibles à la station (sous la forme d'une chaîne de caractères)
+        type: VARCHAR

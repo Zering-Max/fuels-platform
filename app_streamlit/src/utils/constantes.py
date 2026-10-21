@@ -1,0 +1,9 @@
+PERSON_ADDRESS = 'person_address'
+RADIUS = 'radius'
+FUEL_TYPE = 'fuel_type'
+QUANTITY = 'quantity'
+BRAND = 'brand'
+CAR_MODEL = 'car_model'
+ENGINE_MODEL = 'engine_model'
+OPTIONS_FUEL = ["Gazole", "SP95", "SP98", "E10", "E85", "GPLc"]
+OPTIONS_RADIUS = [10, 25, 50, 75, 100]

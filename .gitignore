@@ -1,0 +1,45 @@
+.env
+# DBT
+dbt_pipeline/.user.yml
+dbt_pipeline/package-lock.yml
+dbt_pipeline/dev.duckdb
+dbt_pipeline/target
+dbt_pipeline/logs
+dbt_pipeline/dbt_packages
+dbt_pipeline/pipeline_inputs/raw_fuels_stations.parquet
+dbt_pipeline/.env
+
+# STREAMLIT
+## Python-generated files
+app_streamlit/__pycache__/
+app_streamlit/*.py[oc]
+app_streamlit/build/
+app_streamlit/dist/
+app_streamlit/wheels/
+app_streamlit/*.egg-info
+
+## Virtual environments
+app_streamlit/.venv
+
+## DBT files
+app_streamlit/data
+
+## Streamlit
+app_streamlit/.streamlit/secrets.toml
+
+# AIRFLOW
+
+airflow_orchestrator/__pycache__/
+airflow_orchestrator/*.py[oc]
+airflow_orchestrator/build/
+airflow_orchestrator/dist/
+airflow_orchestrator/wheels/
+airflow_orchestrator/*.egg-info
+airflow_orchestrator/airflow.db
+airflow_orchestrator/airflow.cfg
+airflow_orchestrator/logs/
+airflow_orchestrator/webserver_config.py
+airflow_orchestrator/*.cfg
+airflow_orchestrator/.venv
+airflow_orchestrator/.env
+airflow_orchestrator/simple_auth_manager_passwords.json.generated

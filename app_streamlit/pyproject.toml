@@ -1,0 +1,22 @@
+[project]
+name = "app_streamlit"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "duckdb==1.2.2",
+    "geopandas>=1.1.4",
+    "geopy>=2.5.0",
+    "pandas==2.1.4",
+    "pathlib>=1.0.1",
+    "plotly>=7.0.0",
+    "requests==2.32.3",
+    "shapely==2.1.0",
+    "streamlit==1.63.0",
+]
+
+[tool.uv.workspace]
+members = [
+    "airflow",
+]

@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: int_cars_fuel_consumption_data
+    description: table obtenue par scrapping de tous les modèles de voiture (marque, moteur, etc..) avec leur consommation
+    columns:
+      - name: brand
+        description: Marque de la Voiture
+        type: VARCHAR
+      - name: car_model
+        description: Modèle de la Voiture
+        type: VARCHAR
+      - name: engine_model
+        description: Modèle du moteur (Diesel, Essence, Hybride ou Electrique)
+        type: VARCHAR
+      - name: conso_fuel_liter_per_100km
+        description: consommation d'hydrocarbures (Litre / 100 km)
+        type: VARCHAR
