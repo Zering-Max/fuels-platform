@@ -1,4 +1,5 @@
 .env
+.DS_Store
 # DBT
 dbt_pipeline/.user.yml
 dbt_pipeline/package-lock.yml
