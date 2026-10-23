@@ -62,7 +62,7 @@ services:
    airflow-webserver:
    #  airflow UI
       <<: *airflow-common
-      command: webserver
+      command: api-server
       ports:
          - "127.0.0.1:8080:8080"
       depends_on:
