@@ -1,6 +1,9 @@
 name: station-fuels-platform
 x-airflow-common: &airflow-common
 # --- airflow model that all services use (common) ---
+   config:
+      core:
+         hostname_callable: "airflow.utils.net.get_host_ip_address"
    build:
       context: .
       dockerfile: docker/airflow/Dockerfile
@@ -14,7 +17,6 @@ x-airflow-common: &airflow-common
       AIRFLOW__WEBSERVER__SECRET_KEY: ${AIRFLOW_SECRET_KEY:?defini dans .env}
       AIRFLOW__WEBSERVER__BASE_URL: http://localhost:8080
       AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "false"
-      AIRFLOW__CORE__EXECUTION_API_SERVER_URL: http://airflow-webserver:8080/execution/
       # --- environment variables dbt / motherduck (cloud server for duckdb table) ---
       DBT_PROJECT_DIR: /opt/dbt
       PIPELINE_INPUTS_DIR: /opt/airflow/pipeline_inputs
@@ -57,9 +59,9 @@ services:
       restart: always
    airflow-dag-processor:
    # specific to airflow 3.x : the new scheduler does'nt do anymore the parse & serialize DAG files step it's now the DAG processor
-    <<: *airflow-common
-    command: dag-processor
-    restart: always
+      <<: *airflow-common
+      command: dag-processor
+      restart: always
    airflow-webserver:
    #  airflow UI
       <<: *airflow-common
