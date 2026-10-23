@@ -11,10 +11,11 @@ PIPELINE_INPUTS_DIR = os.environ["PIPELINE_INPUTS_DIR"]
 
 def api_get_stations():
     response = requests.get(URL)
-
+    print('URL PIPE INPUTS', PIPELINE_INPUTS_DIR)
     try:
         if (response.status_code == 200):
             df = pd.read_parquet(URL)
+            print('OK TOUT BON')
             df.to_parquet(f"{PIPELINE_INPUTS_DIR}/raw_fuels_stations.parquet")
         else:
             raise AirflowException(f"STATUS CODE :{response.status_code}")
