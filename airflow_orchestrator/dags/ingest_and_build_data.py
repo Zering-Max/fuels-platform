@@ -11,7 +11,7 @@ DBT_BIN = os.environ["DBT_BIN"]
 profile_config = ProfileConfig(
  profile_name="default",
  target_name="prod",
- profiles_file=os.path.join(DBT_DIR, "profiles.yml"),
+ profiles_yml_filepath=os.path.join(DBT_DIR, "profiles.yml"),
 )
 
 with DAG("ingest_and_build_data",
