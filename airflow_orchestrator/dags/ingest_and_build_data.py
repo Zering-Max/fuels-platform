@@ -1,7 +1,7 @@
 import os
 from airflow import DAG
 from datetime import datetime, timedelta
-from utils.tasks_scripts import api_get_stations, run_dbt_build
+from utils.tasks_scripts import api_get_stations
 from airflow.operators.python import PythonOperator
 from cosmos import DbtTaskGroup, ProjectConfig, ProfileConfig, ExecutionConfig
 
