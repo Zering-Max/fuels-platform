@@ -9,7 +9,7 @@ DBT_DIR = os.environ["DBT_PROJECT_DIR"]
 DBT_BIN = os.environ["DBT_BIN"]
 
 profile_config = ProfileConfig(
- profile_name="default",
+ profile_name="dbt_pipeline",
  target_name="prod",
  profiles_yml_filepath=os.path.join(DBT_DIR, "profiles.yml"),
 )
