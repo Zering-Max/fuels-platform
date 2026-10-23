@@ -1,9 +1,6 @@
 name: station-fuels-platform
 x-airflow-common: &airflow-common
 # --- airflow model that all services use (common) ---
-   config:
-      core:
-         hostname_callable: "airflow.utils.net.get_host_ip_address"
    build:
       context: .
       dockerfile: docker/airflow/Dockerfile
