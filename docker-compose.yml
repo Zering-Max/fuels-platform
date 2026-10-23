@@ -47,11 +47,7 @@ services:
    # airflow base migration + admin account creation
       <<: *airflow-common
       command: >
-         bash -c "airflow db migrate &&
-         airflow users create
-         --username admin --firstname admin --lastname admin
-         --role Admin --email admin@example.com
-         --password ${AIRFLOW_ADMIN_PASSWORD:?defini dans .env}"
+         bash -c "airflow db migrate"
       restart: "no"
    airflow-scheduler:
    #  airflow engine to read and launch tasks
