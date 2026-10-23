@@ -20,7 +20,7 @@ x-airflow-common: &airflow-common
       MOTHERDUCK_DB: ${MOTHERDUCK_DB:?defini dans .env}
       MOTHERDUCK_TOKEN: ${MOTHERDUCK_TOKEN:?defini dans .env}
    volumes:
-      - ./airflow_orchestrator:/opt/airflow # for airflow DAGs
+      - ./airflow_orchestrator/dags:/opt/airflow/dags # for airflow DAGs
       - ./dbt_pipeline:/opt/dbt # for the DBT project
       - ./dbt_pipeline/pipeline_inputs:/opt/airflow/pipeline_inputs # displace 'data source inputs' from DBT to airflow folder
 
