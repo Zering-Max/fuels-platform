@@ -14,7 +14,7 @@ x-airflow-common: &airflow-common
       AIRFLOW__WEBSERVER__SECRET_KEY: ${AIRFLOW_SECRET_KEY:?defini dans .env}
       AIRFLOW__WEBSERVER__BASE_URL: http://localhost:8080
       AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "false"
-      # --- environment variables dbt / motherduck ---
+      # --- environment variables dbt / motherduck (cloud server for duckdb table) ---
       DBT_PROJECT_DIR: /opt/dbt
       PIPELINE_INPUTS_DIR: /opt/airflow/pipeline_inputs
       MOTHERDUCK_DB: ${MOTHERDUCK_DB:?defini dans .env}
@@ -22,7 +22,7 @@ x-airflow-common: &airflow-common
    volumes:
       - ./airflow_orchestrator:/opt/airflow/dags # for airflow DAGs
       - ./dbt_pipeline:/opt/dbt # for the DBT project
-      - ./dbt_pipeline/pipeline_inputs:/opt/airflow/pipeline_inputs # displace 'data source inputs'
+      - ./dbt_pipeline/pipeline_inputs:/opt/airflow/pipeline_inputs # displace 'data source inputs' from DBT to airflow folder
 
    depends_on:
       airflow-metadata:
