@@ -6,7 +6,8 @@ RUN pip install --no-cache-dir \
 astronomer-cosmos \
 pandas \
 pyarrow \
-requests
+requests \
+python-dotenv
 # DBT project created in a venv isolated from airflow venv (prevent dependences incompatibilities)
 RUN python -m venv /home/airflow/dbt_venv \
 && /home/airflow/dbt_venv/bin/pip install --no-cache-dir dbt-duckdb

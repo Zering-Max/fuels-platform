@@ -9,6 +9,11 @@ dbt_pipeline/logs
 dbt_pipeline/dbt_packages
 dbt_pipeline/pipeline_inputs/raw_fuels_stations.parquet
 dbt_pipeline/.env
+dbt_pipeline/.venv
+dbt_pipeline/src
+dbt_pipeline/.python-version
+dbt_pipeline/pyproject.toml
+dbt_pipeline/uv.lock
 
 # STREAMLIT
 ## Python-generated files

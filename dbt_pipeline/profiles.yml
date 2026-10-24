@@ -2,7 +2,7 @@ dbt_pipeline:
   outputs:
     dev:
       type: duckdb
-      path: "{{ env_var('DUCKDB_PATH') }}/dev.duckdb"
+      path: "{{ env_var('DBT_PROJECT_DIR') }}/dev.duckdb"
       threads: 1
 
     prod:

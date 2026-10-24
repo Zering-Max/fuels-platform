@@ -1,18 +1,20 @@
 import os
-from typing import Dict, List
 import pandas as pd
 import requests
+from pathlib import Path
+from dotenv import load_dotenv
 from airflow.exceptions import AirflowException
 
+load_dotenv(Path(__file__).resolve().parents[2] / ".env")
 
 URL = "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/prix-des-carburants-en-france-flux-instantane-v2/exports/parquet"
 PIPELINE_INPUTS_DIR = os.environ["PIPELINE_INPUTS_DIR"]
 
 
 def api_get_stations():
-    response = requests.get(URL)
     print('URL PIPE INPUTS', PIPELINE_INPUTS_DIR)
     try:
+        response = requests.get(URL)
         if (response.status_code == 200):
             df = pd.read_parquet(URL)
             print('OK TOUT BON')
