@@ -10,6 +10,6 @@ requests \
 python-dotenv
 # DBT project created in a venv isolated from airflow venv (prevent dependences incompatibilities)
 RUN python -m venv /home/airflow/dbt_venv \
-&& /home/airflow/dbt_venv/bin/pip install --no-cache-dir dbt-duckdb
+&& /home/airflow/dbt_venv/bin/pip install --no-cache-dir duckdb==1.5.6 dbt-duckdb
 # environment variable for DAG
 ENV DBT_BIN=/home/airflow/dbt_venv/bin/dbt
