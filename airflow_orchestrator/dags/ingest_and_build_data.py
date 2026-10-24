@@ -28,7 +28,7 @@ with DAG("ingest_and_build_data",
     get_data = PythonOperator(
         task_id="api_get_data",
         python_callable=api_get_stations,
-        retries=3,
+        retries=2,
         retry_delay=timedelta(minutes=1),
     )
     dbt_build_data = DbtTaskGroup(
