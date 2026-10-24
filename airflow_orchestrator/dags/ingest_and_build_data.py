@@ -21,7 +21,7 @@ profile_config = ProfileConfig(
 
 with DAG("ingest_and_build_data",
          start_date=datetime(2026, 10, 19),
-         schedule="*/15 * * * *",
+         schedule="0 0,3,6,9,12,15,18,21 * * *",
          catchup=False,
          tags=["dbt"],
     ) as dag:
@@ -29,7 +29,7 @@ with DAG("ingest_and_build_data",
         task_id="api_get_data",
         python_callable=api_get_stations,
         retries=2,
-        retry_delay=timedelta(minutes=1),
+        retry_delay=timedelta(minutes=5),
     )
     dbt_build_data = DbtTaskGroup(
         project_config=ProjectConfig(
