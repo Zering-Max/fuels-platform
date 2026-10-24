@@ -15,7 +15,8 @@ x-airflow-common: &airflow-common
       AIRFLOW__WEBSERVER__BASE_URL: http://localhost:8080
       AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "false"
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: http://airflow-webserver:8080/execution/
-      AIRFLOW__CORE__INTERNAL_API_SECRET_KEY: ${AIRFLOW_INTERNAL_API_SECRET:?defini dans .env}
+      AIRFLOW__API_AUTH__JWT_SECRET: ${AIRFLOW_JWT_SECRET:?defini dans .env}
+      AIRFLOW__API__SECRET_KEY: ${AIRFLOW_JWT_SECRET:?defini dans .env}
       # --- environment variables dbt / motherduck (cloud server for duckdb table) ---
       DBT_PROJECT_DIR: /opt/dbt
       PIPELINE_INPUTS_DIR: /opt/airflow/pipeline_inputs
