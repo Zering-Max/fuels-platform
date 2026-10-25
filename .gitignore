@@ -23,7 +23,8 @@ app_streamlit/build/
 app_streamlit/dist/
 app_streamlit/wheels/
 app_streamlit/*.egg-info
-
+app_streamlit/uv.lock
+app_streamlit/pyproject.toml
 ## Virtual environments
 app_streamlit/.venv
 
