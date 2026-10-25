@@ -1,5 +1,5 @@
 import streamlit as st
-from app_streamlit.utils.constantes import (
+from constantes import (
     BRAND,
     CAR_MODEL,
     ENGINE_MODEL,
@@ -8,7 +8,6 @@ from app_streamlit.utils.constantes import (
     QUANTITY,
     RADIUS,
 )
-from pandas import DataFrame
 
 session_conditions = (
   PERSON_ADDRESS
