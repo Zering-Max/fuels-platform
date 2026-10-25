@@ -1,5 +1,5 @@
 import streamlit as st
-from constantes import (
+from utils.constantes import (
     BRAND,
     CAR_MODEL,
     ENGINE_MODEL,
