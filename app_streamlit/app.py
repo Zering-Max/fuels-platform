@@ -33,7 +33,7 @@ def load_table(table: str):
  return cloud_con().sql(f"SELECT * FROM main.{table}").df()
 
 st.title("J'économise pour du carburant ⛽")
-st.markdown("Plus besoin de noeuds au cerveau, je te donne les 10 stations où tu peux faire le plus d'économies NETTES (en prenant en compte ta voiture, la distance où se trouve la station, etc..) autour de toi.")
+st.markdown("Plus besoin de noeuds au cerveau, je te donne les 5 stations où tu peux faire le plus d'économies NETTES (en prenant en compte ta voiture, la distance où se trouve la station, etc..) autour de toi.")
 st.divider()
 
 # con = duckdb.connect(database=f"{st.secrets['DUCKDB_TABLE_DEV']}", read_only=True)

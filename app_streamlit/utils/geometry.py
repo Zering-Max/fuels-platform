@@ -54,5 +54,5 @@ def get_top10_stations(
   conso_car = df_conso_cars_fuel[(df_conso_cars_fuel["brand"]==brand)&(df_conso_cars_fuel["car_model"]==car_model)&(df_conso_cars_fuel["engine_model"]==engine_model)]["conso_fuel_liter_per_100km"].values[0]
 
   map_data["money_discount"] = round((map_data["max_price"] - map_data[f"prix_{fuel_type}"]) * (quantity - ((conso_car / 100) * map_data["distance_m"])),1)
-  result = map_data.sort_values(by=["money_discount", "distance_m"], ascending=[False, True]).head(10)
+  result = map_data.sort_values(by=["money_discount", "distance_m"], ascending=[False, True]).head(5)
   return result
