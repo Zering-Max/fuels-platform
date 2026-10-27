@@ -15,7 +15,7 @@ from utils.constantes import (
 from utils.geometry import (
     calculate_lat_lon_address,
     get_fuel_stations_in_radius,
-    get_top10_stations,
+    get_top5_stations,
 )
 from utils.store import trigger_map, session_conditions
 from utils.plotly import change_zoom, create_map
@@ -146,7 +146,7 @@ if (
         )
         ## GRAPHE MAP
 
-        map_data = get_top10_stations(
+        map_data = get_top5_stations(
             df_stations=df_filtered,
             df_conso_cars_fuel=df_conso,
             quantity=st.session_state[QUANTITY],
