@@ -11,6 +11,8 @@ x-airflow-common: &airflow-common
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-metadata/airflow
       AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__DAGBAG_IMPORT_TIMEOUT: "120"
+      AIRFLOW__COSMOS__CACHE_DIR: /opt/airflow/cosmos_cache
       AIRFLOW__WEBSERVER__SECRET_KEY: ${AIRFLOW_SECRET_KEY:?defini dans .env}
       AIRFLOW__WEBSERVER__BASE_URL: http://localhost:8080
       AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "false"
@@ -26,6 +28,7 @@ x-airflow-common: &airflow-common
       - ./airflow_orchestrator/dags:/opt/airflow/dags # for airflow DAGs
       - ./dbt_pipeline:/opt/dbt # for the DBT project
       - ./dbt_pipeline/pipeline_inputs:/opt/airflow/pipeline_inputs # displace 'data source inputs' from DBT to airflow folder
+      - /opt/airflow/cosmos_cache
 
    depends_on:
       airflow-metadata:
