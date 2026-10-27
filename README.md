@@ -52,7 +52,8 @@ fuels-platform/
 │   └── dbt_project.yml          # Configurations générales des models DBT
 ├── app_streamlit/
 │   ├── app.py                    # Application Streamlit
-│   └── pyproject.toml            # Doit être à côté de app.py (contrainte Streamlit Cloud)
+│   ├── pyproject.toml            # Doit être à côté de app.py (contrainte Streamlit Cloud)
+│   └── utils/                    # Dossier contenant des scripts pythons pour les calculs de mapping
 ├── docker/airflow/Dockerfile     # Image Docker Airflow personnalisée (avec venv dbt)
 ├── docker-compose.yml            # Stack Airflow complète sur Docker (API server, scheduler, dag-processor)
 └── .env.example                  # Liste des variables d'environnement à définir
