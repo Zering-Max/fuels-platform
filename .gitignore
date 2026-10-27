@@ -48,3 +48,6 @@ airflow_orchestrator/*.cfg
 airflow_orchestrator/.venv
 airflow_orchestrator/.env
 airflow_orchestrator/simple_auth_manager_passwords.json.generated
+
+# CACHE COSMOS (for VPS)
+cosmos_cache
