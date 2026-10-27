@@ -159,4 +159,4 @@ if (
         fig = create_map(df=map_data,coord_center=coord_center, zoom=change_zoom(st.session_state[RADIUS]))
         st.plotly_chart(fig, selection_mode="points")
     else:
-        st.error("L'adresse donnée est peut être trop précise, ré-essaye avec une adresse plus globale.", icon="⚠️")
+        st.error("L'adresse donnée est trop précise, ré-essaye avec une adresse plus globale.", icon="⚠️")
