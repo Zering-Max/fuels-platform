@@ -63,7 +63,7 @@ fuels-platform/
 
 | Choix | Pourquoi |
 |---|---|
-| **Airflow 3 sur un VPS OVH** (Docker Compose) | Orchestration planifiée toutes les 3 heures, Le VPS fait tourner la production 24/7, indépendamment de toute session ouverte. |
+| **Airflow 3 sur un Serveur Privé Virtuel (VPS OVH Cloud)** (Docker Compose) | Orchestration planifiée toutes les 3 heures, Le VPS fait tourner la production 24/7, indépendamment de toute session ouverte. |
 | **dbt + Cosmos** | dbt transforme le SQL en projet versionné, testé et documenté. **Cosmos** intègre chaque modèle dbt comme une tâche Airflow visible dans le DAG : on voit, dans l'UI, quel modèle a échoué. |
 | **DuckDB / MotherDuck** | DuckDB est une base analytique ultra-légère (un fichier, ou un service cloud avec MotherDuck). Parfait pour un pipeline de données embarqué, très rapide en lecture. MotherDuck gère la concurrence et centralise les données dans le cloud. |
 | **Streamlit Cloud** | Hébergement gratuit de l'app, redéploiement automatique à chaque `git push`, secrets gérés dans le dashboard. L'app reste une simple **lectrice** des données. |
