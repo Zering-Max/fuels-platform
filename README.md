@@ -13,7 +13,7 @@ Adresse de l'application : https://economise-pour-du-carburant.streamlit.app/
 ```mermaid
 flowchart LR
     ING_2["Tâche de récupération de données véhicules<br/>(script Python scrapping)"] --> PARQ_2[("pipeline_inputs/<br/>raw_cars_fuel_consumption.parquet")]
-    API["API externe DataGouv<br/>(prix des carburants)"] --> ING["Tâche d'ingestion<br/>(script Python)"]
+    API["API externe DataGouv<br/>(flux de prix des carburants v2)"] --> ING["Tâche d'ingestion<br/>(script Python)"]
     ING --> PARQ[("pipeline_inputs/<br/>raw_fuels_stations.parquet")]
     PARQ --> DBT["Modèles dbt<br/>(staging → intermediate → marts)"]
     PARQ_2 --> DBT["Modèles dbt<br/>(staging → intermediate → marts)"]
