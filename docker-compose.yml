@@ -26,7 +26,7 @@ x-airflow-common: &airflow-common
       - ./airflow_orchestrator/dags:/opt/airflow/dags # for airflow DAGs
       - ./dbt_pipeline:/opt/dbt # for the DBT project
       - ./dbt_pipeline/pipeline_inputs:/opt/airflow/pipeline_inputs # displace 'data source inputs' from DBT to airflow folder
-      - ./cosmos_cache:/opt/airflow/cosmos_cache
+      - ./cosmos_cache:/opt/airflow/cosmos_cache # cache folder for cosmos in the VPS
 
    depends_on:
       airflow-metadata:

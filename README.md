@@ -1,6 +1,6 @@
 # ⛽ Economise pour du carburant — plateforme de données de prix des carburants
 
-Ce projet est une **plateforme de données complète**, construite de bout en bout : elle récupère automatiquement les données de prix des carburants ainsi que des données de véhicules issues de scrapping, les transforme en modèles propres et fiables, les stocke dans une base analytique cloud. Les utilisateurs cherchent là où ils pourront économiser le plus dans une application web interactive en rentrant certaines informations (addresse, type de carburant, rayon d'action, quantité, marque/modèle/modèle moteur de voiture).
+Ce projet est une **plateforme de données complète**, construite de bout en bout : elle récupère automatiquement les données de prix des carburants ainsi que des données de véhicules issues de scrapping, les transforme en modèles propres et fiables, les stocke dans une base analytique cloud. Les utilisateurs cherchent les stations où ils pourront économiser dans une application web interactive en rentrant certaines informations (adresse, type de carburant, rayon d'action, quantité, marque/modèle/modèle moteur de voiture).
 
 Adresse de l'application : https://economise-pour-du-carburant.streamlit.app/
 
