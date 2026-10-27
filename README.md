@@ -26,7 +26,7 @@ flowchart LR
 
 ## 🔄 Étapes du pipeline, en détail
 
-1. **Ingestion** — un script Python interroge l'API externe et écrit le résultat dans un fichier Parquet (`pipeline_inputs/raw_fuels_stations.parquet`).
+1. **Ingestion** — un script Python interroge l'API externe (https://www.data.gouv.fr/datasets/prix-des-carburants-en-france-flux-instantane-v2-amelioree) et écrit le résultat dans un fichier Parquet (`pipeline_inputs/raw_fuels_stations.parquet`).
 2. **Transformation (dbt)** — le projet dbt lit le Parquet comme *source*, puis construit les modèles en deux étages :
    - `stg_*` (**staging**) : nettoyage, renommage, typage de la source brute de stations essence;
    - `int_*` (**intermediate**) : récupération et nettoyage d'une source brute obtenue (fichier Parquet) par scrapping de données d'un site de véhicule (https://www.fiches-auto.fr/consommation/) ;
