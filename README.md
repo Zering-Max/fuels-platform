@@ -29,7 +29,7 @@ flowchart LR
 1. **Ingestion** — un script Python interroge l'API externe (https://www.data.gouv.fr/datasets/prix-des-carburants-en-france-flux-instantane-v2-amelioree) et écrit le résultat dans un fichier Parquet (`pipeline_inputs/raw_fuels_stations.parquet`).
 2. **Transformation (dbt)** — le projet dbt lit le Parquet comme *source*, puis construit les modèles en deux étages :
    - `stg_*` (**staging**) : nettoyage, renommage, typage de la source brute de stations essence;
-   - `int_*` (**intermediate**) : récupération et nettoyage d'une source brute obtenue (fichier Parquet) par scrapping de données d'un site de véhicule (https://www.fiches-auto.fr/consommation/) ;
+   - `int_*` (**intermediate**) : récupération et nettoyage d'une source brute obtenue (fichier Parquet) par scrapping de données d'un site d'information sur les véhicules (https://www.fiches-auto.fr/consommation/) ;
    - modèles **marts** : deux tables (une pour les données de véhicules et leur consommation de carburant et celle montrant toutes les stations essence disponibles).
 3. **Chargement** — chaque `dbt build` écrit dans **MotherDuck**, une base DuckDB hébergée dans le cloud (schéma `prod`).
 4. **Visualisation** — l'application Streamlit (déployée sur Streamlit Cloud) lit ces tables en **lecture seule** et propose exploration et visualisation par openStreetMap. elle utilise aussi des scripts Python annexes (dossier `app_streamlit/utils` ) pour déterminer les stations à proximité de l'adresse écrite par l'utilisateur.
