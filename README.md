@@ -32,7 +32,7 @@ flowchart LR
    - `int_*` (**intermediate**) : récupération et nettoyage d'une source brute obtenue (fichier Parquet) par scrapping de données d'un site de véhicule (https://www.fiches-auto.fr/consommation/) ;
    - modèles **marts** : deux tables (une pour les données de véhicules et leur consommation de carburant et celle montrant toutes les stations essence disponibles).
 3. **Chargement** — chaque `dbt build` écrit dans **MotherDuck**, une base DuckDB hébergée dans le cloud (schéma `prod`).
-4. **Visualisation** — l'application Streamlit (déployée sur Streamlit Cloud) lit ces tables en **lecture seule** et propose exploration et visualisation par openStreetMap. elle utilise aussi des scripts Python annexes pour déterminer les stations à proximité de l'adresse écrite par l'utilisateur.
+4. **Visualisation** — l'application Streamlit (déployée sur Streamlit Cloud) lit ces tables en **lecture seule** et propose exploration et visualisation par openStreetMap. elle utilise aussi des scripts Python annexes (dossier `app_streamlit/utils` ) pour déterminer les stations à proximité de l'adresse écrite par l'utilisateur.
 
 ## 🧩 Structure du dépôt
 
