@@ -16,7 +16,12 @@ def calculate_lat_lon_address(person_address:str):
     print(f"❌ Échec : {e}")
     return 'error'
 
-def get_fuel_stations_in_radius(df:DataFrame,coord_center:List[float] ,radius:int, type_fuel:str) -> DataFrame:
+def get_fuel_stations_in_radius(
+    df:DataFrame,
+    coord_center:List[float],
+    radius:int,
+    type_fuel:str
+) -> DataFrame:
   radius_m = radius * 1000
 
   # Créer un GeoDataFrame à partir du DataFrame
@@ -45,7 +50,7 @@ def get_top5_stations(
     fuel_type:str,
     brand:str,
     car_model:str,
-    engine_model:str
+    engine_model:str,
 ) -> DataFrame:
   map_data = df_stations[["latitude", "longitude", "adresse", "cp", "ville",
         f"prix_{fuel_type}", "distance_m"]]
