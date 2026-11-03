@@ -12,11 +12,11 @@ st.markdown("Pour les données de véhicules, la donnée a été récupérée pa
 
 st.markdown("#### Comment sont calculées les économies nettes ?")
 
-st.markdown("Elles sont calculées en fonction des stations présentes dans le cercle calculé via les données d'adresse et de rayon d'action. Cela va prendre les économies faites à partir du prix maximum par litre des stations présentes dans ce cercle.")
+st.markdown("Elles sont calculées en fonction des stations présentes dans un cercle calculé via les données d'adresse et de rayon d'action. Cela va calculer les économies à partir du prix maximum par litre des prix des stations présentes dans ce cercle.")
 
 st.markdown("#### Est ce que le calculateur prend en compte les pénuries éventuelles des stations ?")
 
-st.markdown("Tout à fait. Les données de flux de carburants sont mis à jour pour le moment toutes les 3 heures. Le calcul prend en compte le fait, sur ce laps de temps de mise à jour, si une station est en pénurie. Elle ne sera alors pas proposée sur la carte quand bien même les économies nettes seraient avantageuses.")
+st.markdown("Tout à fait. Les données de flux de carburants sont mis à jour pour le moment toutes les 3 heures. Le calcul prend en compte le fait, sur cette fréquence de mise à jour, si une station est en pénurie. Elle ne sera alors pas proposée sur la carte quand bien même les économies nettes seraient avantageuses.")
 
 st.markdown("#### Y'a-t-il vraiment toutes les stations en France ?")
 
