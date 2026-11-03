@@ -8,6 +8,8 @@ dbt_pipeline:
     prod:
       type: duckdb
       path: "md:{{ env_var('MOTHERDUCK_DB') }}?motherduck_token={{ env_var('MOTHERDUCK_TOKEN') }}"
-      threads: 4
+      threads: 2
+      settings:
+        memory_limit: "1GB"
 
   target: prod

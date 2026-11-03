@@ -18,7 +18,7 @@ def create_map(
     coord_center:List[float],
     height:int = 500,
     width:int = 400,
-    color_points:List[str] = ["#1BC258","#E4DD1E", '#E28B1A'] + ["crimson", ]*7,
+    color_points:List[str] = ["#1BC258","#E4DD1E", '#E28B1A'] + ["crimson", ]*2,
     zoom:int=11,
 ):
   fig = go.Figure()
